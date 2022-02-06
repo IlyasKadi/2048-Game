@@ -38,11 +38,11 @@ To get a local copy up and running follow these simple example steps.
 
 <div align="center">
     <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
-    <h5 align="center">tutorial for reset</h5>
+    <h5><font color='red'>test blue color font</font></h5>
 </div>
     <span style="color:red">b**tutorial for reset**g</span>
 
- <font color='red'>test blue color font</font>
+ 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
  
