@@ -325,6 +325,29 @@ void NumsGame::moveLeft()
     move_or_die();
 }
 ``` 
+
+```cpp
+void NumsGame::putOnnums()
+{
+
+    for(int i=0; i<4 ;i++)
+    {
+        for(int j=0; j<4 ;j++)
+        {
+            ui->gridboard->addWidget(settile(0),i,j);
+        }
+    }
+
+    for(int i=0; i<4 ;i++)
+    {
+        for(int j=0; j<4 ;j++)
+        {
+            if(numsMatrix[i][j]!=0)
+            ui->gridboard->addWidget(settile(numsMatrix[i][j]),i,j);
+        }
+    }
+}
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
  
