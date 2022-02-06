@@ -4,7 +4,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="/home/ilyas/Documents/logo.png" alt="Logo" width="550" height="380">
+    <img src="images/logo.png" alt="Logo" width="550" height="380">
   <h2 align="center"The 2048 Game</h2>
   <h3 align="center">Final projects</h3>
 </div>
