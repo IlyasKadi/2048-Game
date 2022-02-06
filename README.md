@@ -41,7 +41,7 @@ To get a local copy up and running follow these simple example steps.
     <h5 align="center">tutorial for reset</h5>
 </div>
 
-<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
+<span style="color:red">some **This is Red Bold.** text</span>
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
