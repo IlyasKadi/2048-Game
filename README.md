@@ -127,8 +127,11 @@ void NumsGame::winner()
 
 
 <table>
-  <tr>
-    <td ><br /><sub>
+  <tr> 
+      <td >
+          <br />
+          <sub>
+              
 ```cpp
 void NumsGame::gameOver()
 {
