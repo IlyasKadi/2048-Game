@@ -261,18 +261,18 @@ void NumsGame::gameOver()
 
 
 <table>
-      <tr>
-    <td ><br /><sub>
+<tr>
+    <td align="center"><br /><sub>
         move up
-</sub></a><br /></td>
+   </sub></a><br /></td>
 
-<td align="center"><br /><sub>  
+   <td align="center"><br /><sub>  
        move down
-</sub></a><br /></td></tr> 
+   </sub></a><br /></td>
+</tr> 
 
   <tr>
     <td ><br /><sub>
-
 
 ```cpp
 void NumsGame::moveUp()
@@ -343,8 +343,9 @@ void NumsGame::moveUp()
         
 </sub></a><br /></td>
 
-<td align="center"><br /><sub>  
-    ```cpp
+<td ><br /><sub>  
+    
+```cpp
 void NumsGame::moveDown()
 {
     oladboard=numsMatrix;
@@ -405,7 +406,7 @@ void NumsGame::moveDown()
     move_or_die();
 }
 ```   
-</sub></a><br /></td></tr>   
+</sub><br /></td></tr>   
 </table>
 
 
