@@ -63,6 +63,8 @@ void NumsGame::setinitialpos()
      ui->gridboard->addWidget(settile(2),rndi,rndi);
      ui->gridboard->addWidget(settile(2),rndi_,rndj_);
 }
+```
+```cpp 
 void NumsGame::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
