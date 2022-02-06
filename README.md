@@ -40,6 +40,112 @@ To get a local copy up and running follow these simple example steps.
     <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
     <h5><font color='gris'>tutorial for reset</font></h5>
 </div>
+
+
+```cpp
+
+//Setting up base view
+void NumsGame::setMainBorder()
+{
+
+for (int i = 0; i < 4; ++i) {
+   for (int j = 0; j < 4; ++j) {
+
+         QLabel *label = new QLabel();
+
+         label->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);" );
+
+         label->setAlignment(Qt::AlignCenter);
+         ui->gridboard->addWidget(label,i,j);
+   }
+}
+ setinitialpos();
+}
+```
+
+```cpp
+//Design of tile based on each number
+QLabel * NumsGame:: settile(int numberintile)
+{
+       QString labelNum = QString::number(numberintile);
+       QLabel *tile = new QLabel(labelNum);
+       tile->setAlignment(Qt::AlignCenter);
+
+        switch (numberintile) {
+        case 2: {
+            tile->setStyleSheet("background: rgb(238,228,218);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 4: {
+           tile->setStyleSheet("background: rgb(237,224,200);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 8: {
+           tile->setStyleSheet("background: rgb(242,177,121);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 16: {
+            tile->setStyleSheet("background: rgb(245,150,100);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 32: {
+            tile->setStyleSheet("background: rgb(245,125,95);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 64: {
+            tile->setStyleSheet("background: rgb(245,95,60);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 128: {
+
+            tile->setStyleSheet("background: rgb(237,207,114);" "color: rgb(255,255,255);" "font: bold;" "border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 256: {
+            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
+            dse->setColor(Qt::yellow);
+            dse->setBlurRadius(20);
+            dse->setOffset(-1);
+           // tile->setGraphicsEffect(dse);
+            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 512: {
+            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
+            dse->setColor(Qt::yellow);
+            dse->setBlurRadius(30);
+            dse->setOffset(-1);
+           // tile->setGraphicsEffect(dse);
+            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 1024: {
+            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
+            dse->setColor(Qt::yellow);
+            dse->setBlurRadius(40);
+            dse->setOffset(-1);
+           // tile->setGraphicsEffect(dse);
+            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 2048: {
+            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
+            dse->setColor(Qt::yellow);
+            dse->setBlurRadius(50);
+            dse->setOffset(-1);
+            //tile->setGraphicsEffect(dse);
+            tile->setStyleSheet("background: rgb(237,204,97);"  "color: rgb(255,255,255); font: bold;" "border-radius: 10px; font: 22pt;");
+            break;
+        }
+        default: {
+            tile = new QLabel();
+            tile->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);");
+            break;
+        }
+}
+return tile;
+}
+```
  
 ```cpp 
 //Forming a random position
