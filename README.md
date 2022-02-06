@@ -17,7 +17,7 @@
   </ol> -->
     <ol>
     <li>
-        <a href="#DNS-configuration-steps">DNS server’s configuration steps</a>
+       <a href="#about-the-project">About The Project</a>  
       <a href="#Part-I">Part I : DNS configuration</a>
          <ul>
              
