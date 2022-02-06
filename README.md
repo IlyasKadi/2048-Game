@@ -1,2 +1,47 @@
-# 2048-Game
-Play Puzzle Game 2048. Use your arrow keys to move the tiles. When two tiles with the same number touch, they merge into one. Try to beat your high score!
+<div id="top"></div>
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <img src="images/logo.png" alt="Logo" width="550" height="380">
+  <h2 align="center"2048 Game</h2>
+  <h3 align="center">Final projects</h3>
+</div>
+
+
+<!-- TABLE OF CONTENTS -->
+
+  <summary>Table of Contents</summary>
+  <ol>      
+      <a href="#about-the-project">About The Project</a>         
+  </ol>
+
+
+
+<!-- ABOUT THE PROJECT -->
+# About The Project
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+1. [**How to install Qt**](https://anassbelcaid.github.io/CS221/qtcreator/)
+2. **Clone the repo**
+   ```sh
+   git clone https://github.com/IlyasKadi/2048-Game.git
+   ```
+ 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+
+
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
+ 
+   Project Link : [ToDo-Application](https://github.com/IlyasKadi/2048-Game)   
+ 
+  > Encadré par  : [Mr.BELCAID-Anass](https://anassbelcaid.github.io)  
+                                                                                             
+<p align="right">(<a href="#top">back to top</a>)</p>
