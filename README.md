@@ -40,7 +40,7 @@ To get a local copy up and running follow these simple example steps.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
  
-   Project Link : [ToDo-Application](https://github.com/IlyasKadi/2048-Game)   
+   Project Link : [The 2048 Game](https://github.com/IlyasKadi/2048-Game)   
  
   > Encadré par  : [Mr.BELCAID-Anass](https://anassbelcaid.github.io)  
                                                                                              
