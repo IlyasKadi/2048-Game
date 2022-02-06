@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple example steps.
  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<div align="center" style= color: red>
+<div align="center">
     <img src="images/tuto-game.gif" alt="tuto-game" width="550" height="380">   
     <h5 align="center">tutorial for The 2048 Game</h5>
 </div>
@@ -41,6 +41,7 @@ To get a local copy up and running follow these simple example steps.
     <h5 align="center">tutorial for reset</h5>
 </div>
 
+<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
