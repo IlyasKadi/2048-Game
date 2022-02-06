@@ -12,9 +12,9 @@
 <!-- TABLE OF CONTENTS -->
 
   <summary>Table of Contents</summary>
-<!--   <ol>      
+  <ol>      
       <a href="#about-the-project">About The Project</a>         
-  </ol> -->
+  </ol>
   <ol>
     <li>
       <a href="#Part-I">Part I : DNS configuration</a>
