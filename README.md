@@ -33,7 +33,7 @@ To get a local copy up and running follow these simple example steps.
 
 <div align="center">
     <img src="images/tuto-game.gif" alt="tuto-game" width="550" height="380">   
-    <h5 align="center" color : "red" >tutorial for The 2048 Game</h5>
+    <h5 align="center" color: red>tutorial for The 2048 Game</h5>
 </div>
 
 <div align="center">
