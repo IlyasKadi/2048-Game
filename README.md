@@ -407,11 +407,8 @@ void NumsGame::moveDown()
 }
 ```   
 </sub><br /></td></tr>   
-</table>
 
 
-
-<table>
 <tr>
     <td align="center"><br /><sub>
         move Right
