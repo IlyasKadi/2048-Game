@@ -12,9 +12,43 @@
 <!-- TABLE OF CONTENTS -->
 
   <summary>Table of Contents</summary>
-  <ol>      
+<!--   <ol>      
       <a href="#about-the-project">About The Project</a>         
-  </ol>
+  </ol> -->
+    <ol>
+    <li>
+      <a href="#Part-I">Part I : DNS configuration</a>
+         <ul>
+              <li><a href="#DNS-role-functions">DNS, role & functions</a></li>
+              <li><a href="#different-DNS-servers">different DNS servers</a></li>
+              <li><a href="#DNS-configuration-steps">DNS server’s configuration steps</a></li>
+                  <ul> 
+                      <li><a href="#Configure-the-named">Configure the named.conf</a></li>
+                      <li><a href="#configure-zone-files">Create and configure zone files</a></li>
+                      <li><a href="#Verify-the-configuration">Verify the configuration</a></li>
+                  </ul>
+              <li><a href="#Configure-the-DNS-Client">Configure the DNS Client</a></li>
+              <li><a href="#Configure-primary-and-secondary-DNS-servers">Configure primary and secondary DNS servers</a></li>
+                  <ul> 
+                     <li><a href="#primary-DNS-server">primary DNS server </a></li>
+                     <li><a href="#secondary-DNS-server">secondary DNS server</a></li>
+                     <li><a href="#Test-the-configuration">Test the configuration by stopping the master DNS</a></li>
+                  </ul>
+           </ul>
+        </li>
+        <li><a href="#Part-II">Part II : DDNS configuration</a>
+            <ul> 
+              <li><a href="#Configure-the-DDNS-server">Configure the DDNS server</a></li>
+                   <ul> 
+                     <li><a href="#Install-the-necessary-packages">Install the necessary packages</a></li>
+                     <li><a href="#Configure-the-forward-and-reverse-zones">Configure the forward and reverse zones</a></li>                          
+                   </ul>
+              <li><a href="#Configure-the-client">Configure the client</a></li>
+              <li><a href="#Verify-the-configuration">Verify the configuration</a></li>
+            </ul>
+           </li> 
+        <li><a href="#Part-III">Part III : DDNS and DMZ</a></li>
+   </ol>
 
 
 
