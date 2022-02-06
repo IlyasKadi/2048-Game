@@ -41,7 +41,13 @@ To get a local copy up and running follow these simple example steps.
     <h5 align="center">tutorial for reset</h5>
 </div>
 
-<span style="color:red">some **This is Red Bold.** text</span>
+s { text-decoration:none; } //strike-through
+em { font-style: normal; font-weight: bold; } //italic emphasis
+
+
+// colors
+s { color: green }
+em { color: blue }
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
