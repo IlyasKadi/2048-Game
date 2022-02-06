@@ -41,6 +41,61 @@ To get a local copy up and running follow these simple example steps.
     <h5><font color='gris'>tutorial for reset</font></h5>
 </div>
  
+```cpp 
+//Forming a random position
+std::pair<int, int> NumsGame::formrandpos()
+{
+    int randi = rand() % 4;
+    int randj = rand() % 4;
+     return std::make_pair(randj, randi);
+}
+
+//Setting up two first tiles to start with
+void NumsGame::setinitialpos()
+{
+        auto [rndi,rndj]=formrandpos();
+        auto [rndi_,rndj_]=formrandpos();
+
+
+      numsMatrix[rndi][rndj]=2;
+      numsMatrix[rndi_][rndj_]=2;
+
+     ui->gridboard->addWidget(settile(2),rndi,rndi);
+     ui->gridboard->addWidget(settile(2),rndi_,rndj_);
+}
+void NumsGame::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key())
+    {
+          case Qt::Key_Up:
+         {
+            moveUp();
+            ui->resetbutton->setEnabled(1);
+            break;
+         }
+         case Qt::Key_Left:
+        {
+            moveLeft();
+            ui->resetbutton->setEnabled(1);
+            break;
+        }
+         case Qt::Key_Right:
+        {
+            moveRight();
+            ui->resetbutton->setEnabled(1);
+            break;
+        }
+         case Qt::Key_Down:
+        {
+            moveDown();
+            ui->resetbutton->setEnabled(1);
+            break;
+        }
+   }
+}
+``` 
+
+
 
 ```cpp
 void NumsGame::gameOver()
