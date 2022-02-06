@@ -342,6 +342,7 @@ void NumsGame::moveUp()
 ```
         
 </sub></a><br /></td>
+
 <td align="center"><br /><sub>  
     ```cpp
 void NumsGame::moveDown()
