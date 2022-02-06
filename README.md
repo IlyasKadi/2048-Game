@@ -97,8 +97,38 @@ void NumsGame::keyPressEvent(QKeyEvent *event)
 }
 ``` 
 
+<table>
+  <tr>
+    <td ><br /><sub>
+
+```cpp       
+void NumsGame::winner()
+ {
+    ui->newGame->setEnabled(1);
+    ui->Quit->setEnabled(1);
+    ui->Quit->show();
+    ui->winner->show();
+    ui->newGame->show();
+    ui->Quit->show();
+    ui->lastScore->setText(QString::number(score));
+    ui->lastScore->show();
+    ui->youreScore->show();
+    ui->nicknamelabel->show();
+    ui->Nickname->show();
+    ui->submit->show();
+ }
+```        
+</sub></a><br /></td>
+<td align="center"><br /><sub>
+    
+</sub></a><br /></td></tr>   
+</table>
 
 
+
+<table>
+  <tr>
+    <td ><br /><sub>
 ```cpp
 void NumsGame::gameOver()
 {
@@ -112,25 +142,13 @@ void NumsGame::gameOver()
     ui->Nickname->show();
     ui->submit->show();
 }
-```
+```       
+</sub></a><br /></td>
+<td align="center"><br /><sub>
+    
+</sub></a><br /></td></tr>   
+</table>
 
-```cpp
-void NumsGame::winner()
-{
-    ui->newGame->setEnabled(1);
-    ui->Quit->setEnabled(1);
-    ui->Quit->show();
-    ui->winner->show();
-    ui->newGame->show();
-    ui->Quit->show();
-    ui->lastScore->setText(QString::number(score));
-    ui->lastScore->show();
-    ui->youreScore->show();
-    ui->nicknamelabel->show();
-    ui->Nickname->show();
-    ui->submit->show();
-}
-```
 ```cpp
 void NumsGame::moveUp()
 {
