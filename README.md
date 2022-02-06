@@ -120,7 +120,7 @@ void NumsGame::winner()
 ```        
 </sub></a><br /></td>
 <td align="center"><br /><sub>  
-    <img src="images/game-over.png" alt="Logo" width="250" height="250">   
+    <img src="images/game-over.png" alt="Logo" width="300" height="250">   
 </sub></a><br /></td></tr>   
 </table>
 
@@ -148,7 +148,7 @@ void NumsGame::gameOver()
 ```       
 </sub></a><br /></td>
 <td align="center"><br /><sub>
-    <img src="images/game-over.png" alt="Logo" width="250" height="250">   
+    <img src="images/game-over.png" alt="Logo" width="300" height="250">   
 </sub></a><br /></td></tr>   
 </table>
 
