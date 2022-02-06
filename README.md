@@ -33,21 +33,15 @@ To get a local copy up and running follow these simple example steps.
 
 <div align="center">
     <img src="images/tuto-game.gif" alt="tuto-game" width="550" height="380">   
-    <h5 align="center">tutorial for The 2048 Game</h5>
+    <h5 align="center">**tutorial for The 2048 Game**</h5>
 </div>
 
 <div align="center">
     <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
-    <h5 align="center">tutorial for reset</h5>
+    <h5 align="center"> **tutorial for reset**</h5>
 </div>
 
-s { text-decoration:none; } //strike-through
-em { font-style: normal; font-weight: bold; } //italic emphasis
 
-
-// colors
-s { color: green }
-em { color: blue }
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
