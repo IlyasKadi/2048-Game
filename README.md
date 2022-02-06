@@ -38,10 +38,9 @@ To get a local copy up and running follow these simple example steps.
 
 <div align="center">
     <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
-    <span style="color:red">**tutorial for reset**</span>
     <h5 align="center">tutorial for reset</h5>
 </div>
-
+    <span style="color:red">**tutorial for reset**</span>
 
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
