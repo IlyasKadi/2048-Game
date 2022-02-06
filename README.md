@@ -17,26 +17,16 @@
   </ol>
   <ol>
     <li>
-      <a href="#Part-I">Part I : DNS configuration</a>
+      <a href="#Part-I">Part I :Graphical part</a>
          <ul>
-              <li><a href="#DNS-role-functions">DNS, role & functions</a></li>
-              <li><a href="#different-DNS-servers">different DNS servers</a></li>
-              <li><a href="#DNS-configuration-steps">DNS server’s configuration steps</a></li>
-                  <ul> 
-                      <li><a href="#Configure-the-named">Configure the named.conf</a></li>
-                      <li><a href="#configure-zone-files">Create and configure zone files</a></li>
-                      <li><a href="#Verify-the-configuration">Verify the configuration</a></li>
-                  </ul>
-              <li><a href="#Configure-the-DNS-Client">Configure the DNS Client</a></li>
-              <li><a href="#Configure-primary-and-secondary-DNS-servers">Configure primary and secondary DNS servers</a></li>
-                  <ul> 
-                     <li><a href="#primary-DNS-server">primary DNS server </a></li>
-                     <li><a href="#secondary-DNS-server">secondary DNS server</a></li>
-                     <li><a href="#Test-the-configuration">Test the configuration by stopping the master DNS</a></li>
-                  </ul>
+              <li><a href="#Welcome-interface">Welcome interface</a></li>
+              <li><a href="#Main-Game">Main Game interface</a></li>
+              <li><a href="#High-Scores">High Scores interface</a></li>
+
            </ul>
-        </li>
-        <li><a href="#Part-II">Part II : DDNS configuration</a>
+    </li>
+        <li>
+            <a href="#Part-II">Part II : Core of the game (algorithm)</a>
             <ul> 
               <li><a href="#Configure-the-DDNS-server">Configure the DDNS server</a></li>
                    <ul> 
@@ -47,7 +37,7 @@
               <li><a href="#Verify-the-configuration">Verify the configuration</a></li>
             </ul>
            </li> 
-        <li><a href="#Part-III">Part III : DDNS and DMZ</a></li>
+        <li><a href="#Part-III">Part III :MVC + database Implementation </a></li>
    </ol>
 
 
