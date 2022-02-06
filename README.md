@@ -31,9 +31,15 @@ To get a local copy up and running follow these simple example steps.
  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<div align="center">
+    <img src="images/tuto-game.gif" alt="tuto-game" width="550" height="380">   
+    <h2 align="center">tutorial for The 2048 Game</h2>
+</div>
 
-
-
+<div align="center">
+    <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
+    <h2 align="center">tutorial for The 2048 Game</h2>
+</div>
 
  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
