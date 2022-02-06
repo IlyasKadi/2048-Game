@@ -278,8 +278,6 @@ void NumsGame::gameOver()
 void NumsGame::moveUp()
 {
     oladboard=numsMatrix;
-
-
     //this is a space remover phase
 
     for (int j = 0; j < 4; j++)
