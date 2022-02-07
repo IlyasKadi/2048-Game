@@ -315,7 +315,7 @@ And for the main meal there is a lot to talk about ..,  we tried to implement ou
 So first things first :
 
 ## Movements
-We made an easy movement logic that is divided into three phases (for each movement in a certain direction):
+We made an easy movement logic that is divided into three phases (for each movement in a certain direction) :
 
 Remove Extra Spaces
 <br>
@@ -689,13 +689,163 @@ void NumsGame::keyPressEvent(QKeyEvent *event)
    }
 }
 ``` 
+
+This is a special part of  `move_or_die` function that decide if a new tile is going to be created after an attempt to move to a certain direction so that player can move ( before winning or losing the game ) if yes it creates a new tile in a random place.
+
+So basically it compare between two matrices the old one before pressing a key (in an direction) and the new one after pressing THE SAME KEY so if there is no change in THE MATRIX you can't have a new tile while you keep pressing trying to go in that same direction otherwise you can easaly win..-_-..
+
+> This is an example where you can't move down anymore
+
+<div align="center">
+    <img src="images/CANTMOVEDOWN.PNG.png"  width="
+    " height="">   
+    
+</div>
+
+```cpp
+
+   //condition that check if next move is possible :
+    if( oladboard!=numsMatrix) //movement possible
+    {
+       //updating score:
+        ui->Score_N->setText(QString::number(score));
+        if(ui->BEST_SCORE_N->text().toInt()<=score)
+        {
+            bscore=score;
+             ui->BEST_SCORE_N->setText(QString::number(score));
+        }
+
+
+        //making a rand free position
+        std:: pair<int, int> randpos =formrandpos();
+        do {
+            randpos =formrandpos();
+
+        } while (numsMatrix[randpos.first][randpos.second] != 0);
+
+
+        //to add a new tile in it:
+        numsMatrix[randpos.first][randpos.second]=2 ;
+        ui->gridboard->addWidget(settile(2),randpos.first,randpos.second);
+
+    }
+
+    
+```
+
+
 ## Winner-Loser
 
-> Winners see the gain ------ losers see the pain
+> Winners see the gain ------ losers see the pain.
 
 Yeah.. next phase is win and lose logic : 
 <br>
 
+So easy you win when you reach 2048.
+<br>
+And you lose if there is no movement possible to do : 
+ <br>
+- All tiles are full and there is no possible sum to perform.
+
+Code :
+```cpp  
+void NumsGame:: move_or_die()
+{
+    int c=0;
+
+    //No_Tile_Left loop check
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4;j++)
+        {
+            if( numsMatrix[i][j]==0)
+           {
+              c++;
+           }
+        }
+    }
+
+
+    //No_Sum_possible_ loop check by cols
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 3;j++)
+        {
+            if( numsMatrix[i][j]== numsMatrix[i][j+1])
+           {
+              c++;
+           }
+        }
+    }
+    //No_Sum_possible_ loop check by rows
+    for (int j = 0; j < 4; j++)
+    {
+        for (int i = 0; i < 3;i++)
+        {
+            if( numsMatrix[i][j]== numsMatrix[i+1][j])
+           {
+              c++;
+           }
+        }
+    }
+
+
+    //Win loop check
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4;j++)
+        {
+            if( numsMatrix[i][j]==2048)
+           {
+              winner();
+             dontmove=1;
+           }
+        }
+    }
+
+    //condition that check if next move is possible :
+    if( oladboard!=numsMatrix) //movement possible
+    {
+       //updating score:
+        ui->Score_N->setText(QString::number(score));
+        if(ui->BEST_SCORE_N->text().toInt()<=score)
+        {
+            bscore=score;
+             ui->BEST_SCORE_N->setText(QString::number(score));
+        }
+
+
+        //making a rand free position
+        std:: pair<int, int> randpos =formrandpos();
+        do {
+            randpos =formrandpos();
+
+        } while (numsMatrix[randpos.first][randpos.second] != 0);
+
+
+        //to add a new tile in it:
+        numsMatrix[randpos.first][randpos.second]=2 ;
+        ui->gridboard->addWidget(settile(2),randpos.first,randpos.second);
+
+    }
+    else if(oladboard==numsMatrix && c==0) // movement impossible you're dead +_+
+    {
+        gameOver();
+        dontmove=1;
+
+    }
+    // otherwise do nothing (won't add a tile)
+
+
+}
+void NumsGame::ScoreAddedSayHi(int i)
+{
+    ui->scoreadded->setText("+"+QString::number(i));
+    ui->scoreadded->show();
+    QTimer::singleShot(500, ui->scoreadded, &QLabel::hide);
+
+}
+```
 
 <table>
   <tr>
