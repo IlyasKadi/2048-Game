@@ -1051,6 +1051,7 @@ This is how it looks like  :
 }
 ```
 We put it inside movement function so that everytime a score is added (scoreadded > 0)  it says hi and go
+
  ```cpp
     oldscore=score;
     diffscore=0;
@@ -1074,6 +1075,69 @@ This is how it looks like :
     <img src="images/scores.jpg"  width="
     " height=""> 
 </div> 
+
+
+Code :
+
+<br>
+
+Model :
+```cpp
+  QStandardItemModel *Scorelistmodel= nullptr;
+  ```
+
+
+highscores.cpp
+
+ ```cpp
+
+HighScores::HighScores(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::HighScores)
+{
+    ui->setupUi(this);
+     Scorelistmodel = new QStandardItemModel;
+        loadscores();
+}
+
+HighScores::~HighScores()
+{
+    delete ui;
+}
+
+void HighScores::loadscores()
+{
+
+    NumsGame newgame;
+
+    newgame.db =QSqlDatabase::addDatabase("QSQLITE");
+    newgame.db.setDatabaseName("/Users/pc/Desktop/scores_.sqlite");
+    newgame.db.open();
+
+
+
+    QSqlQuery scores("SELECT DISTINCT * from score  order by score desc",newgame.db);
+
+
+    while(scores.next())
+        newgame.scoreslisttoload.append("        "+scores.value(0).toString() + "                          " + scores.value(1).toString()+"");
+
+    for(auto e :newgame.scoreslisttoload)
+    {
+        QString path{""};
+        QIcon icon(path);
+        ui->scoreview->setModel(Scorelistmodel);
+        Scorelistmodel->appendRow(new QStandardItem(QIcon(icon),e));
+
+    }
+
+
+
+}
+ ```
+ > As shown above .. the query to fill up the listview makes sure to put on the scores in a DESC order and DISTINCT values to avoid redundancy.
+
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Our Team     : [AIT EL KADI Ilyas](https://github.com/IlyasKadi) - [AZIZ Oussama](https://github.com/ATAMAN0)  
