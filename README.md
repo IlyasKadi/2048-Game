@@ -52,12 +52,12 @@ To get a local copy up and running follow these simple example steps.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <div align="center">
-    <img src="images/tuto-game.gif" alt="tuto-game" width="550" height="380">  
+    <img src="https://user-images.githubusercontent.com/80456274/152737429-ada47ee7-6b52-4803-8831-c5182fbce0b8.gif" alt="tuto-game" width="550" height="380">  
     <h5><font color='gris'>overview of The 2048 Game</font></h5>
 </div>
 
 <div align="center">
-    <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
+    <img src="https://user-images.githubusercontent.com/80456274/152737475-e9647907-1b08-4d5c-948f-5910a4ca9aac.gif" alt="tuto-game" width="550" height="380">   
     <h5><font color='gris'>overview of reset</font></h5>
 </div>
 
