@@ -93,6 +93,206 @@ This is our main game interface we decided to keep it as much classic and minima
 
 
 
+The idea id to work with a 4*4 matrix to store the values of the board and corresponding each number 2,4,8..2048 to a tile (label well designed)
+
+This is the code part that made that first look
+
+>Those are the main function used in the main game view
+
+```cpp
+settile(int numberintile);
+putOnnums();
+setMainBorder();
+setinitialpos();
+
+```
+
+```cpp
+//Design of tile based on each number
+QLabel * NumsGame:: settile(int numberintile)
+{
+
+       QString labelNum = QString::number(numberintile);
+       QLabel *tile = new QLabel(labelNum);
+       tile->setAlignment(Qt::AlignCenter);
+
+
+        switch (numberintile) {
+        case 2: {
+
+            tile->setStyleSheet("background: rgb(238,228,218);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
+
+            break;
+        }
+        case 4: {
+           tile->setStyleSheet("background: rgb(237,224,200);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 8: {
+           tile->setStyleSheet("background: rgb(242,177,121);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 16: {
+            tile->setStyleSheet("background: rgb(245,150,100);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 32: {
+            tile->setStyleSheet("background: rgb(245,125,95);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 64: {
+            tile->setStyleSheet("background: rgb(245,95,60);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 128: {
+            tile->setStyleSheet("background: rgb(237,207,114);" "color: rgb(255,255,255);" "font: bold;" "border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 256: {
+            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 512: {
+            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 1024: {
+            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
+            break;
+        }
+        case 2048: {
+            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
+            dse->setColor(Qt::yellow);
+            dse->setBlurRadius(50);
+            dse->setOffset(-1);
+            tile->setGraphicsEffect(dse);
+            tile->setStyleSheet("background: rgb(237,204,97);"  "color: rgb(255,255,255); font: bold;" "border-radius: 10px; font: 22pt;");
+            break;
+        }
+        default: {
+             tile = new QLabel();
+            tile->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);");
+
+
+
+
+            break;
+        }
+
+}
+return tile;
+
+
+
+}
+```
+```cpp
+//Corresponding each num with its tile designed
+void NumsGame::putOnnums()
+{
+
+//clear all
+    for(int i=0; i<4 ;i++)
+    {
+        for(int j=0; j<4 ;j++)
+        {
+            ui->gridboard->addWidget(settile(0),i,j);
+        }
+    }
+
+//Put on tiles
+    for(int i=0; i<4 ;i++)
+    {
+        for(int j=0; j<4 ;j++)
+        {
+            if(numsMatrix[i][j]!=0)
+            ui->gridboard->addWidget(settile(numsMatrix[i][j]),i,j);
+        }
+    }
+
+}
+```
+
+```cpp
+///Setting up base view
+void NumsGame::setMainBorder()
+{
+
+    //initializing board (matrix 4*4)
+    numsMatrix.resize(4);
+    for (int i = 0; i < 4; i++)
+        numsMatrix[i].resize(4);
+    for (int i = 0; i < 4; i++)
+         for (int j = 0; j < 4;j++)
+            numsMatrix[i][j]=0;
+
+    ui->gameoverlabel->hide();
+    ui->winner->hide();
+    ui->Tryagain->hide();
+    ui->newGame->hide();
+    ui->Quit->hide();
+    ui->lastScore->hide();
+    ui->youreScore->hide();
+    ui->nicknamelabel->hide();
+    ui->Nickname->hide();
+    ui->submit->hide();
+
+for (int i = 0; i < 4; ++i) {
+   for (int j = 0; j < 4; ++j) {
+
+        QLabel *label = new QLabel();
+
+         label->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);" );
+
+         label->setAlignment(Qt::AlignCenter);
+         ui->gridboard->addWidget(label,i,j);
+
+   }
+
+}
+ setinitialpos();
+}
+```
+
+```cpp
+//Forming a random position
+std::pair<int, int> NumsGame::formrandpos()
+{
+    int randi = rand() % 4;
+    int randj = rand() % 4;
+     return std::make_pair(randj, randi);
+}
+
+//Setting up two first tiles to start with
+void NumsGame::setinitialpos()
+{
+        auto [rndi,rndj]=formrandpos();
+        auto [rndi_,rndj_]=formrandpos();
+
+
+      numsMatrix[rndi][rndj]=2;
+      numsMatrix[rndi_][rndj_]=2;
+
+     ui->gridboard->addWidget(settile(2),rndi,rndi);
+     ui->gridboard->addWidget(settile(2),rndi_,rndj_);
+
+
+
+}
+
+```
+
+```cpp
+void NumsGame::start()
+{
+    this->setFixedSize(this->geometry().width(),this->geometry().height());
+    getbestscore();
+    setMainBorder();
+
+}
+```
+
+
 otherwise if you clicked second button it will leads you to :
 
 
@@ -381,6 +581,8 @@ void NumsGame::moveRight()
 
 <td ><br /><sub>  
     
+
+
 ```cpp
 void NumsGame::moveLeft()
 {
@@ -446,134 +648,7 @@ void NumsGame::moveLeft()
 </sub><br /></td></tr>   
 </table>
 
-```cpp
-
-//Setting up base view
-void NumsGame::setMainBorder()
-{
-
-for (int i = 0; i < 4; ++i) {
-   for (int j = 0; j < 4; ++j) {
-
-         QLabel *label = new QLabel();
-
-         label->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);" );
-
-         label->setAlignment(Qt::AlignCenter);
-         ui->gridboard->addWidget(label,i,j);
-   }
-}
- setinitialpos();
-}
-```
-
-```cpp
-//Design of tile based on each number
-QLabel * NumsGame:: settile(int numberintile)
-{
-       QString labelNum = QString::number(numberintile);
-       QLabel *tile = new QLabel(labelNum);
-       tile->setAlignment(Qt::AlignCenter);
-
-        switch (numberintile) {
-        case 2: {
-            tile->setStyleSheet("background: rgb(238,228,218);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 4: {
-           tile->setStyleSheet("background: rgb(237,224,200);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 8: {
-           tile->setStyleSheet("background: rgb(242,177,121);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 16: {
-            tile->setStyleSheet("background: rgb(245,150,100);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 32: {
-            tile->setStyleSheet("background: rgb(245,125,95);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 64: {
-            tile->setStyleSheet("background: rgb(245,95,60);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 128: {
-
-            tile->setStyleSheet("background: rgb(237,207,114);" "color: rgb(255,255,255);" "font: bold;" "border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 256: {
-            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
-            dse->setColor(Qt::yellow);
-            dse->setBlurRadius(20);
-            dse->setOffset(-1);
-           // tile->setGraphicsEffect(dse);
-            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 512: {
-            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
-            dse->setColor(Qt::yellow);
-            dse->setBlurRadius(30);
-            dse->setOffset(-1);
-           // tile->setGraphicsEffect(dse);
-            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 1024: {
-            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
-            dse->setColor(Qt::yellow);
-            dse->setBlurRadius(40);
-            dse->setOffset(-1);
-           // tile->setGraphicsEffect(dse);
-            tile->setStyleSheet("background: rgb(237,204,97);" "color: rgb(255,255,255);" "font: bold; border-radius: 10px; font: 22pt;");
-            break;
-        }
-        case 2048: {
-            QGraphicsDropShadowEffect *dse = new QGraphicsDropShadowEffect();
-            dse->setColor(Qt::yellow);
-            dse->setBlurRadius(50);
-            dse->setOffset(-1);
-            //tile->setGraphicsEffect(dse);
-            tile->setStyleSheet("background: rgb(237,204,97);"  "color: rgb(255,255,255); font: bold;" "border-radius: 10px; font: 22pt;");
-            break;
-        }
-        default: {
-            tile = new QLabel();
-            tile->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);");
-            break;
-        }
-}
-return tile;
-}
-```
- 
-```cpp 
-//Forming a random position
-std::pair<int, int> NumsGame::formrandpos()
-{
-    int randi = rand() % 4;
-    int randj = rand() % 4;
-     return std::make_pair(randj, randi);
-}
-
-//Setting up two first tiles to start with
-void NumsGame::setinitialpos()
-{
-        auto [rndi,rndj]=formrandpos();
-        auto [rndi_,rndj_]=formrandpos();
-
-
-      numsMatrix[rndi][rndj]=2;
-      numsMatrix[rndi_][rndj_]=2;
-
-     ui->gridboard->addWidget(settile(2),rndi,rndi);
-     ui->gridboard->addWidget(settile(2),rndi_,rndj_);
-}
-```
+And this is the link between movement and keyboard keys :
 ```cpp 
 void NumsGame::keyPressEvent(QKeyEvent *event)
 {
