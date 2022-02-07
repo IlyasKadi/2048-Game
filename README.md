@@ -1037,7 +1037,9 @@ This is how it looks like  :
 <div align="center">
     <img src="images/scoreadded.PNG"  width="
     " height=""> 
+</div> 
  
+
 
  ```cpp
  void NumsGame::ScoreAddedSayHi(int i)
