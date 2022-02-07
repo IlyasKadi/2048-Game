@@ -339,6 +339,7 @@ And for the coding part :
     <td ><br /><sub>
 
 ```cpp
+        
 void NumsGame::moveUp()
 {
     oldscore=score;
@@ -404,6 +405,7 @@ void NumsGame::moveUp()
     diffscore=score-oldscore;
     if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
+        
 ```
         
 </sub><br /></td>
@@ -411,6 +413,7 @@ void NumsGame::moveUp()
 <td ><br /><sub>  
     
 ```cpp
+    
 void NumsGame::moveDown()
 {
     oldscore=score;
@@ -473,6 +476,7 @@ void NumsGame::moveDown()
     diffscore=score-oldscore;
     if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
+    
 ```   
 </sub><br /></td></tr>   
 
@@ -491,6 +495,7 @@ void NumsGame::moveDown()
     <td ><br /><sub>
 
 ```cpp
+        
 void NumsGame::moveRight()
 {
     oldscore=score;
@@ -552,6 +557,7 @@ void NumsGame::moveRight()
     diffscore=score-oldscore;
     if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
+        
 ```
         
 </sub><br /></td>
@@ -561,6 +567,7 @@ void NumsGame::moveRight()
 
 
 ```cpp
+    
 void NumsGame::moveLeft()
 {
     oldscore=score;
@@ -623,6 +630,7 @@ void NumsGame::moveLeft()
     diffscore=score-oldscore;
     if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
+    
 ``` 
   
 </sub><br /></td></tr>   
@@ -632,6 +640,7 @@ And this is the `link` between `movement` and `keyboard keys` :
 `dontmove` is a variable that allows player to move as long as he can move You didn't finish yet (neither a winner or loser)
 
 ```cpp 
+        
 void NumsGame::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
@@ -667,6 +676,7 @@ void NumsGame::keyPressEvent(QKeyEvent *event)
        }
    }
 }
+        
 ``` 
 
 This is a special part of  `move_or_die` function that decide if a new tile is going to be created after an attempt to move to a certain direction so that player can move ( before winning or losing the game ) if yes it creates a new tile in a random place.
@@ -682,6 +692,7 @@ So basically it compare between two matrices the old one before pressing a key (
 </div>
 
 ```cpp
+        
    //condition that check if next move is possible :
     if( oladboard!=numsMatrix) //movement possible
     {
@@ -703,6 +714,7 @@ So basically it compare between two matrices the old one before pressing a key (
         numsMatrix[randpos.first][randpos.second]=2 ;
         ui->gridboard->addWidget(settile(2),randpos.first,randpos.second);
     }   
+        
 ```
 
 
@@ -720,7 +732,9 @@ And you lose if there is no movement possible to do :
 - All tiles are full and there is no possible sum to perform.
 
 Code :
+        
 ```cpp  
+        
 void NumsGame:: move_or_die()
 {
     int c=0;
@@ -808,6 +822,7 @@ void NumsGame::ScoreAddedSayHi(int i)
     ui->scoreadded->show();
     QTimer::singleShot(500, ui->scoreadded, &QLabel::hide);
 }
+        
 ```
 
 
@@ -817,7 +832,8 @@ void NumsGame::ScoreAddedSayHi(int i)
   <tr>
     <td ><br /><sub>
 
-```cpp       
+```cpp    
+        
 void NumsGame::winner()
  {
     ui->newGame->show();
@@ -846,6 +862,7 @@ void NumsGame::winner()
     ui->submit->show();
     ui->submit->setEnabled(1);
  }
+        
 ```        
 </sub><br /></td>
 <td align="center"><br /><sub>  
@@ -862,6 +879,7 @@ void NumsGame::winner()
           <sub>
               
 ```cpp
+              
 void NumsGame::gameOver()
 {
     ui->gameoverlabel->setEnabled(1);
@@ -889,6 +907,7 @@ void NumsGame::gameOver()
     ui->submit->show();
     ui->submit->setEnabled(1);
 }
+              
 ```    
 
 
@@ -921,6 +940,7 @@ Those are two variables and two lists that concern this part :
 For the score it increases every time you add two or more tiles :
 
 ```cpp
+        
     for(int i=0;i<4;i++)
     {
         for(int j=1;j<4;j++)
@@ -936,11 +956,14 @@ For the score it increases every time you add two or more tiles :
             }
         }
     }
+        
 ```  
+        
 
 And for the best score it gets its value from a database of scores :
 
 ```cpp
+        
  void NumsGame::getbestscore()
  {
      db =QSqlDatabase::addDatabase("QSQLITE");
@@ -956,11 +979,13 @@ And for the best score it gets its value from a database of scores :
 
       ui->BEST_SCORE_N->setText(QString::number(scoreslistnum[scoreslistnum.size()-1]));
  }
+        
  ```
  
  And it changes everytime you hit better score than the best (not best anymore)  if movement is possible :
 
  ```cpp
+        
     //condition that check if next move is possible :
     if( oladboard!=numsMatrix) //movement possible
     {
@@ -975,6 +1000,7 @@ And for the best score it gets its value from a database of scores :
         .
         .
     }
+        
 ```
 
 
@@ -993,16 +1019,19 @@ This is how it looks like  :
 <br>
 
  ```cpp
+        
  void NumsGame::ScoreAddedSayHi(int i)
 {
     ui->scoreadded->setText("+"+QString::number(i));
     ui->scoreadded->show();
     QTimer::singleShot(500, ui->scoreadded, &QLabel::hide);
 }
+        
 ```
 We put it inside movement function so that everytime a score is added ( diffscore > 0)  it says hi and go
 
  ```cpp
+        
     oldscore=score;
     diffscore=0;
     .
@@ -1012,6 +1041,7 @@ We put it inside movement function so that everytime a score is added ( diffscor
     move_or_die();
     diffscore=score-oldscore;
     if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
+        
 ```
 
 # Part-III
@@ -1031,6 +1061,7 @@ Code :
 Setting up database :
 
 ```cpp
+        
 void NumsGame::setdatabase(QString nickname,  int score)
 {
     db =QSqlDatabase::addDatabase("QSQLITE");
@@ -1052,28 +1083,35 @@ void NumsGame::setdatabase(QString nickname,  int score)
         QMessageBox::critical(this,"info","insert not create table");
     }
 }
+        
 ```
 
 Fill up db on_submit_clicked :
 
 ```cpp
+        
 void NumsGame::on_submit_clicked()
 {
    setdatabase(ui->Nickname->text(),score);
    reset();
    ui->Nickname->setText("");
 }
+        
 ```
 
 
 Model :
+        
 ```cpp
+        
   QStandardItemModel *Scorelistmodel= nullptr;
+        
 ```
 
 highscores.cpp
 
  ```cpp
+        
 HighScores::HighScores(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HighScores)
@@ -1109,6 +1147,7 @@ void HighScores::loadscores()
         Scorelistmodel->appendRow(new QStandardItem(QIcon(icon),e));
     }
 }
+        
  ```
  
  > As shown above, the query to fill up the listview makes sure to put on the scores in a DESC order and DISTINCT values to avoid redundancy.
