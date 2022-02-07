@@ -127,12 +127,324 @@ Remove Extra Spaces
 Here is a Simple schema that explain how it really works within an exemple of moving up :
 > Same thing for other movement you just need to play a bit with indexes
 
+<br>
+<br>
+A first case when spaces needed to be removed first 
 <div align="center">
-    <img src="images/2048_2.png"  width="
+    <img src="images/2048_3.png"  width="
     " height="">   
+     <h5  align="center"><font color='white'>overview of reset</font></h5>
     
 </div>
 
+<br>
+<br>
+<br>
+<br>
+A first case when spaces needed to be removed after the sum 
+<div align="center">
+    <img src="images/2048_2.png"  width="
+    " height="">   
+     <h5  align="center"><font color='white'>overview of reset</font></h5>
+    
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+And for the coding part :
+
+<table>
+<tr>
+    <td align="center"><br /><sub>
+        move up
+   </sub></a><br /></td>
+
+   <td align="center"><br /><sub>  
+       move down
+   </sub></a><br /></td>
+</tr> 
+
+  <tr>
+    <td ><br /><sub>
+
+```cpp
+void NumsGame::moveUp()
+{
+    oladboard=numsMatrix;
+    //this is a space remover phase
+
+    for (int j = 0; j < 4; j++)
+    {
+        for (int i = 1; i < 4; i++)
+        {
+                 if (numsMatrix[i][j] != 0)
+                {
+                     for(int k=0;k<i;k++)
+                     {
+                       if (numsMatrix[k][j] == 0)
+                      {
+                        numsMatrix[k][j]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                      }
+                  }
+             }
+        }
+    }
+
+ //this is the sum phase (and so on concerning other dorections)
+    for (int j = 0; j < 4; j++)
+      {
+      for (int i = 1; i < 4; i++)
+        {
+         if (numsMatrix[i][j] != 0)
+          {
+          if(numsMatrix[i-1][j] == numsMatrix[i][j] )
+           {
+             numsMatrix[i-1][j]=numsMatrix[i][j]*2;
+             ScoreAddedSayHi( numsMatrix[i-1][j]);
+             score+=numsMatrix[i-1][j];
+             numsMatrix[i][j]=0;
+           }
+         }
+       }
+     }
+    //this is another space remover phase (and the same for other dorections)
+
+    for (int j = 0; j < 4; j++)
+      {
+      for (int i = 1; i < 4; i++)
+        {
+        if (numsMatrix[i][j] != 0)
+         {
+         for(int k=0;k<i;k++)
+           {
+           if (numsMatrix[k][j] == 0)
+            {
+               numsMatrix[k][j]=numsMatrix[i][j];
+               numsMatrix[i][j]=0;
+            }
+           }
+         }
+        }
+      }
+      putOnnums();
+      move_or_die();
+}
+```
+        
+</sub></a><br /></td>
+
+<td ><br /><sub>  
+    
+```cpp
+void NumsGame::moveDown()
+{
+    oladboard=numsMatrix;
+
+    for(int j=0;j<4;j++)
+    {
+        for(int i=2;i>=0;i--)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+                for(int k=3;k>i;k--)
+                {
+                    if(numsMatrix[k][j]==0)
+                    {
+                        numsMatrix[k][j]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                    }
+                }
+            }
+        }
+    }
+
+    for(int j=0;j<4;j++)
+    {
+        for(int i=2;i>=0;i--)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+               if(numsMatrix[i+1][j]==numsMatrix[i][j])
+                {
+                   numsMatrix[i+1][j]=numsMatrix[i][j]*2;
+                   ScoreAddedSayHi(numsMatrix[i+1][j]);
+                   score+=numsMatrix[i+1][j];
+                   numsMatrix[i][j]=0;
+                }
+           }
+        }
+     }
+
+    for(int j=0;j<4;j++)
+    {
+        for(int i=2;i>=0;i--)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+                for(int k=3;k>i;k--)
+                {
+                    if(numsMatrix[k][j]==0)
+                    {
+                        numsMatrix[k][j]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                    }
+                }
+            }
+        }
+    }
+    putOnnums();
+    move_or_die();
+}
+```   
+</sub><br /></td></tr>   
+
+
+<tr>
+    <td align="center"><br /><sub>
+        move Right
+   </sub></a><br /></td>
+
+   <td align="center"><br /><sub>  
+       move left
+   </sub></a><br /></td>
+</tr> 
+
+  <tr>
+    <td ><br /><sub>
+
+```cpp
+void NumsGame::moveRight()
+{
+   oladboard=numsMatrix;
+    for(int i=0;i<4;i++)
+    {
+        for(int j=2;j>=0;j--)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+               for(int k=3;k>j;k--)
+                {
+                    if(numsMatrix[i][k]==0)
+                    {
+                        numsMatrix[i][k]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                    }
+                }
+            }
+        }
+    }
+
+    for(int i=0;i<4;i++)
+    {
+        for(int j=2;j>=0;j--)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+               if(numsMatrix[i][j+1]==numsMatrix[i][j] )
+               {
+                   numsMatrix[i][j+1]=numsMatrix[i][j]*2;
+                   ScoreAddedSayHi( numsMatrix[i][j+1]);
+                   score+=numsMatrix[i][j+1];
+                   numsMatrix[i][j]=0;
+               }
+            }
+        }
+    }
+
+    for(int i=0;i<4;i++)
+    {
+        for(int j=2;j>=0;j--)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+                for(int k=3;k>j;k--)
+                {
+                    if(numsMatrix[i][k]==0)
+                    {
+                        numsMatrix[i][k]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                    }
+                }
+            }
+        }
+    }
+    putOnnums();
+    move_or_die();
+}
+```
+        
+</sub></a><br /></td>
+
+<td ><br /><sub>  
+    
+```cpp
+void NumsGame::moveLeft()
+{
+    oladboard=numsMatrix;
+
+    for(int i=0;i<4;i++)
+    {
+        for(int j=1;j<4;j++)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+                for(int k=0;k<j;k++)
+                {
+                    if(numsMatrix[i][k]==0)
+                    {
+                        numsMatrix[i][k]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                    }
+                }
+            }
+        }
+    }
+
+    for(int i=0;i<4;i++)
+    {
+        for(int j=1;j<4;j++)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+                if(numsMatrix[i][j-1]==numsMatrix[i][j] )
+                {
+                    numsMatrix[i][j-1]=numsMatrix[i][j]*2;
+                    ScoreAddedSayHi( numsMatrix[i][j-1]);
+                    score+=numsMatrix[i][j-1];
+                    numsMatrix[i][j]=0;
+                }
+            }
+        }
+    }
+
+    for(int i=0;i<4;i++)
+    {
+        for(int j=1;j<4;j++)
+        {
+            if(numsMatrix[i][j]==0)
+            {
+                for(int k=0;k<j;k++)
+                {
+                    if(numsMatrix[i][k]==0)
+                    {
+                        numsMatrix[i][k]=numsMatrix[i][j];
+                        numsMatrix[i][j]=0;
+                    }
+                }
+            }
+        }
+    }
+    putOnnums();
+    move_or_die();
+}
+``` 
+  
+</sub><br /></td></tr>   
+</table>
 
 ```cpp
 
