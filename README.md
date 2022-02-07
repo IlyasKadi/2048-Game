@@ -927,6 +927,16 @@ void NumsGame::gameOver()
 }
 ```    
 
+
+
+
+</sub></a><br /></td>
+<td align="center"><br /><sub>
+    <img src="images/game-over.png" alt="Logo" width="300" height="250">   
+</sub></a><br /></td></tr>   
+</table>
+
+
 <br>
 
 ## Scoring
@@ -941,16 +951,6 @@ And three lists :
 * score
 * bscore
 * bscore
-
-
-
-</sub></a><br /></td>
-<td align="center"><br /><sub>
-    <img src="images/game-over.png" alt="Logo" width="300" height="250">   
-</sub></a><br /></td></tr>   
-</table>
-
-
 
 <table>
 <tr>
