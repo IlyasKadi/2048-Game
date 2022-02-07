@@ -328,11 +328,11 @@ And for the coding part :
 <tr>
     <td align="center"><br /><sub>
         move up
-   </sub></a><br /></td>
+   </sub><br /></td>
 
    <td align="center"><br /><sub>  
        move down
-   </sub></a><br /></td>
+   </sub><br /></td>
 </tr> 
 
   <tr>
@@ -406,7 +406,7 @@ void NumsGame::moveUp()
 }
 ```
         
-</sub></a><br /></td>
+</sub><br /></td>
 
 <td ><br /><sub>  
     
@@ -480,11 +480,11 @@ void NumsGame::moveDown()
 <tr>
     <td align="center"><br /><sub>
         move Right
-   </sub></a><br /></td>
+   </sub><br /></td>
 
    <td align="center"><br /><sub>  
        move left
-   </sub></a><br /></td>
+   </sub><br /></td>
 </tr> 
 
   <tr>
@@ -554,7 +554,7 @@ void NumsGame::moveRight()
 }
 ```
         
-</sub></a><br /></td>
+</sub><br /></td>
 
 <td ><br /><sub>  
     
@@ -847,10 +847,10 @@ void NumsGame::winner()
     ui->submit->setEnabled(1);
  }
 ```        
-</sub></a><br /></td>
+</sub><br /></td>
 <td align="center"><br /><sub>  
     <img src="https://user-images.githubusercontent.com/80456274/152738073-50d81304-6662-4f5e-ae41-a44374e31789.png" alt="Logo" width="300" height="250">   
-</sub></a><br /></td></tr>   
+</sub><br /></td></tr>   
 </table>
 
 
@@ -894,10 +894,10 @@ void NumsGame::gameOver()
 
 
 
-</sub></a><br /></td>
+</sub><br /></td>
 <td align="center"><br /><sub>
     <img src="https://user-images.githubusercontent.com/80456274/152738131-810f20c4-6c20-4fb0-b709-2cb728d6d53d.png" alt="Logo" width="300" height="250">   
-</sub></a><br /></td></tr>   
+</sub><br /></td></tr>   
 </table>
 
 
