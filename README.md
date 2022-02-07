@@ -69,7 +69,7 @@ In this part we worked mostly with `ui` to design the form of the parts of te GA
 ## Welcome-interface
 
 <div align="center">
-    <img src="images/menu.png" alt="tuto-game" width="" height="">       
+    <img src="https://user-images.githubusercontent.com/80456274/152737637-02c4bb77-63a5-47af-852e-18f015b58d7b.png" alt="tuto-game" width="" height="">       
 </div>
 
 
@@ -82,7 +82,7 @@ So when clicking first button it will leads you to :
 
 
 <div align="center">
-    <img src="images/game.png" alt="tuto-game" width="" height="">       
+    <img src="https://user-images.githubusercontent.com/80456274/152737745-d4f817b9-a3d3-41cc-840f-4ac5ec5b3c99.png" alt="tuto-game" width="" height="">       
 </div>
 
 This is our `main game interface` we decided to keep it as much `classic` and minimalist as possible one label for `2048` and two others one for `best score` and the other for the `realtime score` and a button to `reset` in case you get bored or you don't like your progess .
@@ -271,7 +271,7 @@ Otherwise if you clicked `second button` it will leads you to :
 
 ## High-Scores
 <div align="center">
-    <img src="images/scores.jpg" alt="tuto-game" width="" height="">    
+    <img src="https://user-images.githubusercontent.com/80456274/152737854-69bf74da-6de4-4b8f-80ba-29fb15672373.jpg" alt="tuto-game" width="" height="">    
 </div>
 
 This is the `High Scores interface` two simples labels one for `Nickname` and the other for `High Scores` and a `list view` where we going to put our `model`.
@@ -303,7 +303,7 @@ Here is a `Simple schema` that explain how it really works within an exemple of 
 <br>
 A first case when spaces needed to be removed first 
 <div align="center">
-    <img src="images/2048_3.png"  width="" height="">   
+    <img src="https://user-images.githubusercontent.com/80456274/152737891-42350e1a-875b-4b11-b411-f3fba2ebc820.png"  width="" height="">   
      <h5  align="center"><font color='white'>case 1</font></h5>    
 </div>
 
@@ -313,7 +313,7 @@ A first case when spaces needed to be removed first
 <br>
 A first case when spaces needed to be removed after the sum 
 <div align="center">
-    <img src="images/2048_2.png"  width="" height="">   
+    <img src="https://user-images.githubusercontent.com/80456274/152737934-69b7463f-45d9-4336-966e-e6a8272549f3.png"  width="" height="">   
      <h5  align="center"><font color='white'>case 2</font></h5>    
 </div>
 
@@ -676,7 +676,7 @@ So basically it compare between two matrices the old one before pressing a key (
 > This is an example where you can't move down anymore
 
 <div align="center">
-    <img src="images/CANTMOVEDOWN.PNG"  width="
+    <img src="https://user-images.githubusercontent.com/80456274/152738002-bdfdcd2a-69c7-4750-a5aa-b66a513d35af.PNG"  width="
     " height="">   
     
 </div>
@@ -849,7 +849,7 @@ void NumsGame::winner()
 ```        
 </sub></a><br /></td>
 <td align="center"><br /><sub>  
-    <img src="images/you-won.png" alt="Logo" width="300" height="250">   
+    <img src="https://user-images.githubusercontent.com/80456274/152738073-50d81304-6662-4f5e-ae41-a44374e31789.png" alt="Logo" width="300" height="250">   
 </sub></a><br /></td></tr>   
 </table>
 
@@ -896,7 +896,7 @@ void NumsGame::gameOver()
 
 </sub></a><br /></td>
 <td align="center"><br /><sub>
-    <img src="images/game-over.png" alt="Logo" width="300" height="250">   
+    <img src="https://user-images.githubusercontent.com/80456274/152738131-810f20c4-6c20-4fb0-b709-2cb728d6d53d.png" alt="Logo" width="300" height="250">   
 </sub></a><br /></td></tr>   
 </table>
 
@@ -986,7 +986,7 @@ And for the best score it gets its value from a database of scores :
 This is how it looks like  :
 
 <div align="center">
-    <img src="images/scoreadded.jpg"  width="
+    <img src="https://user-images.githubusercontent.com/80456274/152738219-29bc6cce-f1fe-48b6-bef5-c9ac46482d7f.jpg"  width="
     " height=""> 
 </div> 
  
@@ -1017,11 +1017,11 @@ We put it inside movement function so that everytime a score is added ( diffscor
 # Part-III
 
 ## MVC + database Implementation
-This is the part where MVC intervene we decided to keep it away from the main game because [ the table view ] is the only model that will carry the game but absolutely won't keep its beauty and classical character (we don't think that somone would do when it means a lot to him and after he was so addicted with it and then he grows up and get the chance to make his own), but instead we decide to use a list view that shows the score (stored in a database) .
+This is the part where `MVC` intervene we decided to keep it away from the main game because [ the table view ] is the only model that will carry the game but absolutely won't keep its beauty and classical character (we don't think that somone would do when it means a lot to him and after he was so addicted with it and then he grows up and get the chance to make his own), but instead we decide to use a list view that shows the score (stored in a database) .
 This is how it looks like :
 
 <div align="center">
-    <img src="images/scores.jpg"  width="
+    <img src="https://user-images.githubusercontent.com/80456274/152738324-9e5784e3-6859-4873-b182-60f44b2c47d4.jpg"  width="
     " height=""> 
 </div> 
 
