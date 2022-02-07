@@ -1035,7 +1035,7 @@ And for the best score it gets its value from a database of scores :
 This is how it looks like  :
 
 <div align="center">
-    <img src="images/scoreadded.PNG"  width="
+    <img src="images/scoreadded.jpg"  width="
     " height=""> 
 </div> 
  
