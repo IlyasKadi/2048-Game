@@ -1039,7 +1039,7 @@ This is how it looks like  :
     " height=""> 
 </div> 
  
-
+<br>
 
  ```cpp
  void NumsGame::ScoreAddedSayHi(int i)
