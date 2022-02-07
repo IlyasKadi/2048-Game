@@ -372,6 +372,8 @@ And for the coding part :
 ```cpp
 void NumsGame::moveUp()
 {
+    oldscore=score;
+    diffscore=0;
     oladboard=numsMatrix;
     //this is a space remover phase
 
@@ -403,7 +405,6 @@ void NumsGame::moveUp()
           if(numsMatrix[i-1][j] == numsMatrix[i][j] )
            {
              numsMatrix[i-1][j]=numsMatrix[i][j]*2;
-             ScoreAddedSayHi( numsMatrix[i-1][j]);
              score+=numsMatrix[i-1][j];
              numsMatrix[i][j]=0;
            }
@@ -429,8 +430,10 @@ void NumsGame::moveUp()
          }
         }
       }
-      putOnnums();
-      move_or_die();
+    putOnnums();
+    move_or_die();
+    diffscore=score-oldscore;
+    if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
 ```
         
@@ -441,6 +444,8 @@ void NumsGame::moveUp()
 ```cpp
 void NumsGame::moveDown()
 {
+    oldscore=score;
+    diffscore=0;
     oladboard=numsMatrix;
 
     for(int j=0;j<4;j++)
@@ -470,7 +475,6 @@ void NumsGame::moveDown()
                if(numsMatrix[i+1][j]==numsMatrix[i][j])
                 {
                    numsMatrix[i+1][j]=numsMatrix[i][j]*2;
-                   ScoreAddedSayHi(numsMatrix[i+1][j]);
                    score+=numsMatrix[i+1][j];
                    numsMatrix[i][j]=0;
                 }
@@ -497,6 +501,8 @@ void NumsGame::moveDown()
     }
     putOnnums();
     move_or_die();
+    diffscore=score-oldscore;
+    if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
 ```   
 </sub><br /></td></tr>   
@@ -518,7 +524,9 @@ void NumsGame::moveDown()
 ```cpp
 void NumsGame::moveRight()
 {
-   oladboard=numsMatrix;
+    oldscore=score;
+    diffscore=0;
+    oladboard=numsMatrix;
     for(int i=0;i<4;i++)
     {
         for(int j=2;j>=0;j--)
@@ -546,7 +554,6 @@ void NumsGame::moveRight()
                if(numsMatrix[i][j+1]==numsMatrix[i][j] )
                {
                    numsMatrix[i][j+1]=numsMatrix[i][j]*2;
-                   ScoreAddedSayHi( numsMatrix[i][j+1]);
                    score+=numsMatrix[i][j+1];
                    numsMatrix[i][j]=0;
                }
@@ -573,6 +580,8 @@ void NumsGame::moveRight()
     }
     putOnnums();
     move_or_die();
+    diffscore=score-oldscore;
+    if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
 ```
         
@@ -585,6 +594,8 @@ void NumsGame::moveRight()
 ```cpp
 void NumsGame::moveLeft()
 {
+    oldscore=score;
+    diffscore=0;
     oladboard=numsMatrix;
 
     for(int i=0;i<4;i++)
@@ -614,7 +625,6 @@ void NumsGame::moveLeft()
                 if(numsMatrix[i][j-1]==numsMatrix[i][j] )
                 {
                     numsMatrix[i][j-1]=numsMatrix[i][j]*2;
-                    ScoreAddedSayHi( numsMatrix[i][j-1]);
                     score+=numsMatrix[i][j-1];
                     numsMatrix[i][j]=0;
                 }
@@ -641,6 +651,8 @@ void NumsGame::moveLeft()
     }
     putOnnums();
     move_or_die();
+    diffscore=score-oldscore;
+    if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
 }
 ``` 
   
@@ -943,14 +955,105 @@ void NumsGame::gameOver()
 
 This is where you finish your game and get your score, or maybe you are still in the game and watch your score going up and up .. 
 
-There is two variables that concern this part :
-* score
-* bscore
+Those are two variables and two lists that concern this part :
+*  >  `int score`
+*  >  `int bscore `
+*  >  `oldscore`;
+*  >  `diffscore`;
+-----------
+* > `QStringList scoreslist`;
+* > `QVector <int> scoreslistnum`;
 
-And three lists :
-* score
-* bscore
-* bscore
+
+
+For the score it increases every time you add two or more tiles :
+```cpp
+
+    for(int i=0;i<4;i++)
+    {
+        for(int j=1;j<4;j++)
+        {
+            if(numsMatrix[i][j]!=0)
+            {
+                if(numsMatrix[i][j-1]==numsMatrix[i][j] )
+                {
+                    numsMatrix[i][j-1]=numsMatrix[i][j]*2;                  
+                    score+=numsMatrix[i][j-1]; //score added
+                    numsMatrix[i][j]=0;
+                }
+            }
+        }
+    }
+```  
+
+And for the best score it gets its value from a database of scores :
+```cpp
+ void NumsGame::getbestscore()
+ {
+     db =QSqlDatabase::addDatabase("QSQLITE");
+     db.setDatabaseName("/Users/pc/Desktop/scores_.sqlite");
+     db.open();
+     QSqlQuery scores("SELECT * from score ",db);
+
+     while(scores.next())
+         scoreslist.append(scores.value(1).toString()+"");
+
+
+   for(QString e: scoreslist)
+        scoreslistnum.push_back(e.toInt());
+
+      ui->BEST_SCORE_N->setText(QString::number(scoreslistnum[scoreslistnum.size()-1]));
+
+
+ }
+ ```
+ And it changes everytime you hit better score than the best (not best anymore)  if movement is possible :
+
+ ```cpp
+    //condition that check if next move is possible :
+    if( oladboard!=numsMatrix) //movement possible
+    {
+       //updating score:
+        ui->Score_N->setText(QString::number(score));
+        if(ui->BEST_SCORE_N->text().toInt()<=score)
+        {
+            bscore=score;
+             ui->BEST_SCORE_N->setText(QString::number(score));
+        }
+        .
+        .
+        .
+    }
+
+```
+
+
+ A beutifull little detail was added  :
+ <br>
+ Each time you add up two or 2^n tile a small label shows that amount of 2^n added quickly and disapear : 
+
+ ```cpp
+ void NumsGame::ScoreAddedSayHi(int i)
+{
+    ui->scoreadded->setText("+"+QString::number(i));
+    ui->scoreadded->show();
+    QTimer::singleShot(500, ui->scoreadded, &QLabel::hide);
+
+}
+```
+We put it inside movement function so that everytime a score is added (scoreadded > 0)  it says hi and go
+ ```cpp
+    oldscore=score;
+    diffscore=0;
+    .
+    .
+    .
+    putOnnums();
+    move_or_die();
+    diffscore=score-oldscore;
+    if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
+
+```
 
 <table>
 <tr>
