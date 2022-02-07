@@ -1017,7 +1017,7 @@ We put it inside movement function so that everytime a score is added ( diffscor
 # Part-III
 
 ## MVC + database Implementation
-This is the part where `MVC` intervene we decided to keep it away from the main game because [ the table view ] is the only model that will carry the game but absolutely won't keep its beauty and classical character (we don't think that somone would do when it means a lot to him and after he was so addicted with it and then he grows up and get the chance to make his own), but instead we decide to use a list view that shows the score (stored in a database) .
+This is the part where `MVC` intervene we decided to keep it away from the main game because [ the table view ] is the only model that will carry the game but absolutely won't keep its beauty and classical character (we don't think that somone would do when it means a lot to him and after he was so addicted with it and then he grows up and get the chance to make his own), but instead we decide to use a list view that shows the score (stored in a `database`) .
 This is how it looks like :
 
 <div align="center">
