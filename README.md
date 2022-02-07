@@ -697,7 +697,7 @@ So basically it compare between two matrices the old one before pressing a key (
 > This is an example where you can't move down anymore
 
 <div align="center">
-    <img src="images/CANTMOVEDOWN.PNG.png"  width="
+    <img src="images/CANTMOVEDOWN.PNG"  width="
     " height="">   
     
 </div>
@@ -847,6 +847,9 @@ void NumsGame::ScoreAddedSayHi(int i)
 }
 ```
 
+
+> THIS IS HOW IT LOOKS WHEN YOU WIN OR LOSE
+
 <table>
   <tr>
     <td ><br /><sub>
@@ -854,18 +857,31 @@ void NumsGame::ScoreAddedSayHi(int i)
 ```cpp       
 void NumsGame::winner()
  {
+    ui->newGame->show();
     ui->newGame->setEnabled(1);
+
     ui->Quit->setEnabled(1);
     ui->Quit->show();
+
     ui->winner->show();
-    ui->newGame->show();
-    ui->Quit->show();
+    ui->winner->setEnabled(1);
+
+
     ui->lastScore->setText(QString::number(score));
+    ui->lastScore->setEnabled(1);
     ui->lastScore->show();
+
     ui->youreScore->show();
+    ui->youreScore->setEnabled(1);
+
     ui->nicknamelabel->show();
+    ui->nicknamelabel->setEnabled(1);
+
+    ui->Nickname->setEnabled(1);
     ui->Nickname->show();
+
     ui->submit->show();
+    ui->submit->setEnabled(1);
  }
 ```        
 </sub></a><br /></td>
@@ -885,15 +901,30 @@ void NumsGame::winner()
 ```cpp
 void NumsGame::gameOver()
 {
-    ui->Tryagain->setEnabled(1);
+    ui->gameoverlabel->setEnabled(1);
     ui->gameoverlabel->show();
+
+    ui->gameoverlabel->setEnabled(1);
+    ui->gameoverlabel->show();
+
     ui->Tryagain->show();
+    ui->Tryagain->setEnabled(1);
+
     ui->lastScore->setText(QString::number(score));
     ui->lastScore->show();
+    ui->lastScore->setEnabled(1);
+
     ui->youreScore->show();
+    ui->youreScore->setEnabled(1);
+
     ui->nicknamelabel->show();
+    ui->nicknamelabel->setEnabled(1);
+
     ui->Nickname->show();
+    ui->Nickname->setEnabled(1);
+
     ui->submit->show();
+    ui->submit->setEnabled(1);
 }
 ```       
 </sub></a><br /></td>
