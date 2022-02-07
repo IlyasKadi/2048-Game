@@ -4,7 +4,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="![logo](https://user-images.githubusercontent.com/80456274/152737100-68de06f8-2337-4002-9b00-cd6665554ca7.png)" alt="Logo" width="550" height="380">   
+    <img src="![logo](https://user-images.githubusercontent.com/80456274/152737100-68de06f8-2337-4002-9b00-cd6665554ca7.png).png" alt="Logo" width="550" height="380">   
     <h2 align="center">The 2048 Game</h2>
     <h3 align="center">Final projects</h3>
 </div>
