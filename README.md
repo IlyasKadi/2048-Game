@@ -29,7 +29,7 @@
             <ul> 
               <li><a href="#Movements">Movements</a></li>
               <li><a href="#Scoring">Scoring</a></li>
-              <li><a href="#Verify-the-configuration">Win/Lose logic</a></li>
+              <li><a href="#Winner-Loser">Win/Lose logic</a></li>
               <li><a href="#Verify-the-configuration">Other details</a></li>
             </ul>
            </li> 
@@ -315,7 +315,7 @@ And for the main meal there is a lot to talk about ..,  we tried to implement ou
 So first things first :
 
 ## Movements
-We made an easy movement logic I that is divided into three phases :
+We made an easy movement logic that is divided into three phases (for each movement in a certain direction):
 
 Remove Extra Spaces
 <br>
@@ -649,38 +649,53 @@ void NumsGame::moveLeft()
 </table>
 
 And this is the link between movement and keyboard keys :
+`dontmove` is a variable that allows player to move as long as he can move You didn't finish yet (neither a winner or loser)
+
 ```cpp 
 void NumsGame::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
-    {
-          case Qt::Key_Up:
-         {
-            moveUp();
-            ui->resetbutton->setEnabled(1);
-            break;
-         }
-         case Qt::Key_Left:
-        {
-            moveLeft();
-            ui->resetbutton->setEnabled(1);
-            break;
-        }
-         case Qt::Key_Right:
-        {
-            moveRight();
-            ui->resetbutton->setEnabled(1);
-            break;
-        }
-         case Qt::Key_Down:
-        {
-            moveDown();
-            ui->resetbutton->setEnabled(1);
-            break;
-        }
+   {
+        if(dontmove==0)
+       {
+            case Qt::Key_Up:
+           {
+                moveUp();
+                ui->resetbutton->setEnabled(1);
+                break;
+           }
+           case Qt::Key_Left:
+           {
+                moveLeft();
+                ui->resetbutton->setEnabled(1);
+                break;
+
+            }
+            case Qt::Key_Right:
+           {
+                moveRight();
+                ui->resetbutton->setEnabled(1);
+                break;
+
+           }
+            case Qt::Key_Down:
+           {
+                moveDown();
+                ui->resetbutton->setEnabled(1);
+                break;
+           }
+       }
+
    }
 }
 ``` 
+## Winner-Loser
+
+> Winners see the gain ------ losers see the pain
+
+Yeah.. next phase is win and lose logic : 
+<br>
+
 
 <table>
   <tr>
