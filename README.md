@@ -1032,6 +1032,13 @@ And for the best score it gets its value from a database of scores :
  <br>
  Each time you add up two or 2^n tile a small label shows that amount of 2^n added quickly and disapear : 
 
+This is how it looks like  :
+
+<div align="center">
+    <img src="images/scoreadded.PNG"  width="
+    " height=""> 
+ 
+
  ```cpp
  void NumsGame::ScoreAddedSayHi(int i)
 {
