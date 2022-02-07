@@ -1050,7 +1050,7 @@ This is how it looks like  :
 
 }
 ```
-We put it inside movement function so that everytime a score is added (scoreadded > 0)  it says hi and go
+We put it inside movement function so that everytime a score is added ( diffscore > 0)  it says hi and go
 
  ```cpp
     oldscore=score;
@@ -1079,7 +1079,50 @@ This is how it looks like :
 
 Code :
 
-<br>
+Setting up database :
+
+```cpp
+void NumsGame::setdatabase(QString nickname,  int score)
+{
+    db =QSqlDatabase::addDatabase("QSQLITE");
+
+    db.setDatabaseName("/Users/pc/Desktop/scores_.sqlite");
+    db.open();
+
+      QSqlQuery query(db);
+
+
+    QString create {"CREATE TABLE IF NOT EXISTS score (name VARCHAR(80), score int)"};
+    if(!query.exec(create))
+    {
+        QMessageBox::critical(this,"info","could not create table");
+
+    }
+
+
+    QString insert {"INSERT INTO score values ('%1','%2')"};
+    if(!query.exec(insert.arg(nickname).arg(score)))
+    {
+        QMessageBox::critical(this,"info","insert not create table");
+    }
+
+
+}
+
+```
+Fill up db on_submit_clicked :
+
+```cpp
+void NumsGame::on_submit_clicked()
+{
+   setdatabase(ui->Nickname->text(),score);
+   reset();
+   ui->Nickname->setText("");
+
+}
+
+```
+
 
 Model :
 ```cpp
@@ -1135,7 +1178,9 @@ void HighScores::loadscores()
 
 }
  ```
- > As shown above .. the query to fill up the listview makes sure to put on the scores in a DESC order and DISTINCT values to avoid redundancy.
+ > As shown above, the query to fill up the listview makes sure to put on the scores in a DESC order and DISTINCT values to avoid redundancy.
+
+
 
 
 
