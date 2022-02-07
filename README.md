@@ -28,9 +28,8 @@
             <a href="#Part-II">Part II : Core of the game (algorithm)</a>
             <ul> 
               <li><a href="#Movements">Movements</a></li>
-              <li><a href="#Scoring">Scoring</a></li>
               <li><a href="#Winner-Loser">Win/Lose logic</a></li>
-              <li><a href="#Verify-the-configuration">Other details</a></li>
+              <li><a href="#Scoring">Scoring</a></li>
             </ul>
            </li> 
         <li><a href="#Part-III">Part III :MVC + database Implementation </a></li>
@@ -926,7 +925,25 @@ void NumsGame::gameOver()
     ui->submit->show();
     ui->submit->setEnabled(1);
 }
-```       
+```    
+
+<br>
+
+## Scoring
+
+This is where you finish your game and get your score, or maybe you are still in the game and watch your score going up and up .. 
+
+There is two variables that concern this part :
+* score
+* bscore
+
+And three lists :
+* score
+* bscore
+* bscore
+
+
+
 </sub></a><br /></td>
 <td align="center"><br /><sub>
     <img src="images/game-over.png" alt="Logo" width="300" height="250">   
