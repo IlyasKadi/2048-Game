@@ -309,7 +309,7 @@ This is the High Scores interface two simples labels one for Nickname and the ot
 
 # Part-II
 
-And for the main meal there is a lot to talk about ..,  we tried to implement our own algorithm in the game (and by the way Oussama used to play the GAME a lot) that's why we decided to keep it as first choice instead of working on another game.
+And for the main meal there is a lot to talk about ..,  we were able to implement our own algorithm (inspired by the original one) in the game (and by the way Oussama used to play the GAME a lot) that's why we decided to keep it as first choice instead of working on another game.
 
 So first things first :
 
@@ -332,7 +332,7 @@ A first case when spaces needed to be removed first
 <div align="center">
     <img src="images/2048_3.png"  width="
     " height="">   
-     <h5  align="center"><font color='white'>overview of reset</font></h5>
+     <h5  align="center"><font color='white'>case 1</font></h5>
     
 </div>
 
@@ -344,7 +344,7 @@ A first case when spaces needed to be removed after the sum
 <div align="center">
     <img src="images/2048_2.png"  width="
     " height="">   
-     <h5  align="center"><font color='white'>overview of reset</font></h5>
+     <h5  align="center"><font color='white'>case 2</font></h5>
     
 </div>
 
