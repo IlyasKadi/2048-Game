@@ -64,18 +64,16 @@ To get a local copy up and running follow these simple example steps.
 
 # Part-I 
 
-In this part we worked mostly with ui to design the form of the parts of te GAME.
+In this part we worked mostly with `ui` to design the form of the parts of te GAME.
 
 ## Welcome-interface
 
 <div align="center">
-    <img src="images/menu.png" alt="tuto-game" width="
-    " height="">   
-    
+    <img src="images/menu.png" alt="tuto-game" width="" height="">       
 </div>
 
 
-So basically there is a simple image of the game and two buttons one to launch a new game and the second one for checking scores
+So basically there is a simple image of the game and two buttons one to launch a `new game` and the second one for `checking scores`
 So when clicking first button it will leads you to :
 
 
@@ -84,12 +82,10 @@ So when clicking first button it will leads you to :
 
 
 <div align="center">
-    <img src="images/game.png" alt="tuto-game" width="
-    " height="">   
-    
+    <img src="images/game.png" alt="tuto-game" width="" height="">       
 </div>
 
-This is our main game interface we decided to keep it as much classic and minimalist as possible one label for 2048 and two others one for best score and the other for the realtime score and a button to reset in case you get bored or you don't like your progess .
+This is our `main game interface` we decided to keep it as much `classic` and minimalist as possible one label for `2048` and two others one for `best score` and the other for the `realtime score` and a button to `reset` in case you get bored or you don't like your progess .
 
 
 
@@ -97,14 +93,13 @@ The idea id to work with a 4*4 matrix to store the values of the board and corre
 
 This is the code part that made that first look
 
->Those are the main function used in the main game view
+> Those are the main function used in the main game view
 
 ```cpp
 settile(int numberintile);
 putOnnums();
 setMainBorder();
 setinitialpos();
-
 ```
 
 ```cpp
@@ -115,13 +110,10 @@ QLabel * NumsGame:: settile(int numberintile)
        QString labelNum = QString::number(numberintile);
        QLabel *tile = new QLabel(labelNum);
        tile->setAlignment(Qt::AlignCenter);
-
-
+       
         switch (numberintile) {
         case 2: {
-
             tile->setStyleSheet("background: rgb(238,228,218);" "color: rgb(119,110,101);" "font: bold; border-radius: 10px; font: 22pt;");
-
             break;
         }
         case 4: {
@@ -172,25 +164,17 @@ QLabel * NumsGame:: settile(int numberintile)
         default: {
              tile = new QLabel();
             tile->setStyleSheet("background: rgb(205,192,180);" "border-radius: 10px;" "color: rgb(119,110,101);");
-
-
-
-
             break;
         }
-
 }
 return tile;
-
-
-
 }
 ```
+
 ```cpp
 //Corresponding each num with its tile designed
 void NumsGame::putOnnums()
 {
-
 //clear all
     for(int i=0; i<4 ;i++)
     {
@@ -199,7 +183,6 @@ void NumsGame::putOnnums()
             ui->gridboard->addWidget(settile(0),i,j);
         }
     }
-
 //Put on tiles
     for(int i=0; i<4 ;i++)
     {
@@ -209,7 +192,6 @@ void NumsGame::putOnnums()
             ui->gridboard->addWidget(settile(numsMatrix[i][j]),i,j);
         }
     }
-
 }
 ```
 
@@ -217,7 +199,6 @@ void NumsGame::putOnnums()
 ///Setting up base view
 void NumsGame::setMainBorder()
 {
-
     //initializing board (matrix 4*4)
     numsMatrix.resize(4);
     for (int i = 0; i < 4; i++)
@@ -246,9 +227,7 @@ for (int i = 0; i < 4; ++i) {
 
          label->setAlignment(Qt::AlignCenter);
          ui->gridboard->addWidget(label,i,j);
-
    }
-
 }
  setinitialpos();
 }
@@ -269,17 +248,12 @@ void NumsGame::setinitialpos()
         auto [rndi,rndj]=formrandpos();
         auto [rndi_,rndj_]=formrandpos();
 
-
       numsMatrix[rndi][rndj]=2;
       numsMatrix[rndi_][rndj_]=2;
 
      ui->gridboard->addWidget(settile(2),rndi,rndi);
      ui->gridboard->addWidget(settile(2),rndi_,rndj_);
-
-
-
 }
-
 ```
 
 ```cpp
@@ -288,22 +262,19 @@ void NumsGame::start()
     this->setFixedSize(this->geometry().width(),this->geometry().height());
     getbestscore();
     setMainBorder();
-
 }
 ```
 
 
-otherwise if you clicked second button it will leads you to :
+Otherwise if you clicked `second button` it will leads you to :
 
 
 ## High-Scores
 <div align="center">
-    <img src="images/scores.jpg" alt="tuto-game" width="
-    " height="">   
-    
+    <img src="images/scores.jpg" alt="tuto-game" width="" height="">    
 </div>
 
-This is the High Scores interface two simples labels one for Nickname and the other for High Scores and a list view where we going to put our model.
+This is the `High Scores interface` two simples labels one for `Nickname` and the other for `High Scores` and a `list view` where we going to put our `model`.
 
 
 <br>
@@ -315,7 +286,7 @@ And for the main meal there is a lot to talk about ..,  we were able to implemen
 So first things first :
 
 ## Movements
-We made an easy movement logic that is divided into three phases (for each movement in a certain direction) :
+We made an `easy movement logic` that is divided into `three phases` (for each movement in a certain direction) :
 
 Remove Extra Spaces
 <br>
@@ -324,17 +295,16 @@ Perform The Sum
 Remove Extra Spaces 
 <br>
 
-Here is a Simple schema that explain how it really works within an exemple of moving up :
+Here is a `Simple schema` that explain how it really works within an exemple of moving up :
+
 > Same thing for other movement you just need to play a bit with indexes
 
 <br>
 <br>
 A first case when spaces needed to be removed first 
 <div align="center">
-    <img src="images/2048_3.png"  width="
-    " height="">   
-     <h5  align="center"><font color='white'>case 1</font></h5>
-    
+    <img src="images/2048_3.png"  width="" height="">   
+     <h5  align="center"><font color='white'>case 1</font></h5>    
 </div>
 
 <br>
@@ -343,10 +313,8 @@ A first case when spaces needed to be removed first
 <br>
 A first case when spaces needed to be removed after the sum 
 <div align="center">
-    <img src="images/2048_2.png"  width="
-    " height="">   
-     <h5  align="center"><font color='white'>case 2</font></h5>
-    
+    <img src="images/2048_2.png"  width="" height="">   
+     <h5  align="center"><font color='white'>case 2</font></h5>    
 </div>
 
 <br>
@@ -660,7 +628,7 @@ void NumsGame::moveLeft()
 </sub><br /></td></tr>   
 </table>
 
-And this is the link between movement and keyboard keys :
+And this is the `link` between `movement` and `keyboard keys` :
 `dontmove` is a variable that allows player to move as long as he can move You didn't finish yet (neither a winner or loser)
 
 ```cpp 
@@ -697,7 +665,6 @@ void NumsGame::keyPressEvent(QKeyEvent *event)
                 break;
            }
        }
-
    }
 }
 ``` 
@@ -715,7 +682,6 @@ So basically it compare between two matrices the old one before pressing a key (
 </div>
 
 ```cpp
-
    //condition that check if next move is possible :
     if( oladboard!=numsMatrix) //movement possible
     {
@@ -727,22 +693,16 @@ So basically it compare between two matrices the old one before pressing a key (
              ui->BEST_SCORE_N->setText(QString::number(score));
         }
 
-
         //making a rand free position
         std:: pair<int, int> randpos =formrandpos();
         do {
             randpos =formrandpos();
-
         } while (numsMatrix[randpos.first][randpos.second] != 0);
-
 
         //to add a new tile in it:
         numsMatrix[randpos.first][randpos.second]=2 ;
         ui->gridboard->addWidget(settile(2),randpos.first,randpos.second);
-
-    }
-
-    
+    }   
 ```
 
 
@@ -777,7 +737,6 @@ void NumsGame:: move_or_die()
         }
     }
 
-
     //No_Sum_possible_ loop check by cols
     for (int i = 0; i < 4; i++)
     {
@@ -800,7 +759,6 @@ void NumsGame:: move_or_die()
            }
         }
     }
-
 
     //Win loop check
     for (int i = 0; i < 4; i++)
@@ -826,36 +784,29 @@ void NumsGame:: move_or_die()
              ui->BEST_SCORE_N->setText(QString::number(score));
         }
 
-
         //making a rand free position
         std:: pair<int, int> randpos =formrandpos();
         do {
             randpos =formrandpos();
-
         } while (numsMatrix[randpos.first][randpos.second] != 0);
-
 
         //to add a new tile in it:
         numsMatrix[randpos.first][randpos.second]=2 ;
         ui->gridboard->addWidget(settile(2),randpos.first,randpos.second);
-
     }
     else if(oladboard==numsMatrix && c==0) // movement impossible you're dead +_+
     {
         gameOver();
         dontmove=1;
-
     }
     // otherwise do nothing (won't add a tile)
-
-
 }
+
 void NumsGame::ScoreAddedSayHi(int i)
 {
     ui->scoreadded->setText("+"+QString::number(i));
     ui->scoreadded->show();
     QTimer::singleShot(500, ui->scoreadded, &QLabel::hide);
-
 }
 ```
 
@@ -968,8 +919,8 @@ Those are two variables and two lists that concern this part :
 
 
 For the score it increases every time you add two or more tiles :
-```cpp
 
+```cpp
     for(int i=0;i<4;i++)
     {
         for(int j=1;j<4;j++)
@@ -988,6 +939,7 @@ For the score it increases every time you add two or more tiles :
 ```  
 
 And for the best score it gets its value from a database of scores :
+
 ```cpp
  void NumsGame::getbestscore()
  {
@@ -999,15 +951,13 @@ And for the best score it gets its value from a database of scores :
      while(scores.next())
          scoreslist.append(scores.value(1).toString()+"");
 
-
    for(QString e: scoreslist)
         scoreslistnum.push_back(e.toInt());
 
       ui->BEST_SCORE_N->setText(QString::number(scoreslistnum[scoreslistnum.size()-1]));
-
-
  }
  ```
+ 
  And it changes everytime you hit better score than the best (not best anymore)  if movement is possible :
 
  ```cpp
@@ -1025,11 +975,11 @@ And for the best score it gets its value from a database of scores :
         .
         .
     }
-
 ```
 
 
  A beutifull little detail was added  :
+ 
  <br>
  Each time you add up two or 2^n tile a small label shows that amount of 2^n added quickly and disapear : 
 
@@ -1048,7 +998,6 @@ This is how it looks like  :
     ui->scoreadded->setText("+"+QString::number(i));
     ui->scoreadded->show();
     QTimer::singleShot(500, ui->scoreadded, &QLabel::hide);
-
 }
 ```
 We put it inside movement function so that everytime a score is added ( diffscore > 0)  it says hi and go
@@ -1063,7 +1012,6 @@ We put it inside movement function so that everytime a score is added ( diffscor
     move_or_die();
     diffscore=score-oldscore;
     if(diffscore >0 ){ ScoreAddedSayHi(diffscore);};
-
 ```
 
 # Part-III
@@ -1092,25 +1040,20 @@ void NumsGame::setdatabase(QString nickname,  int score)
 
       QSqlQuery query(db);
 
-
     QString create {"CREATE TABLE IF NOT EXISTS score (name VARCHAR(80), score int)"};
     if(!query.exec(create))
     {
         QMessageBox::critical(this,"info","could not create table");
-
     }
-
 
     QString insert {"INSERT INTO score values ('%1','%2')"};
     if(!query.exec(insert.arg(nickname).arg(score)))
     {
         QMessageBox::critical(this,"info","insert not create table");
     }
-
-
 }
-
 ```
+
 Fill up db on_submit_clicked :
 
 ```cpp
@@ -1119,22 +1062,18 @@ void NumsGame::on_submit_clicked()
    setdatabase(ui->Nickname->text(),score);
    reset();
    ui->Nickname->setText("");
-
 }
-
 ```
 
 
 Model :
 ```cpp
   QStandardItemModel *Scorelistmodel= nullptr;
-  ```
-
+```
 
 highscores.cpp
 
  ```cpp
-
 HighScores::HighScores(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::HighScores)
@@ -1151,17 +1090,13 @@ HighScores::~HighScores()
 
 void HighScores::loadscores()
 {
-
     NumsGame newgame;
 
     newgame.db =QSqlDatabase::addDatabase("QSQLITE");
     newgame.db.setDatabaseName("/Users/pc/Desktop/scores_.sqlite");
     newgame.db.open();
 
-
-
     QSqlQuery scores("SELECT DISTINCT * from score  order by score desc",newgame.db);
-
 
     while(scores.next())
         newgame.scoreslisttoload.append("        "+scores.value(0).toString() + "                          " + scores.value(1).toString()+"");
@@ -1172,13 +1107,10 @@ void HighScores::loadscores()
         QIcon icon(path);
         ui->scoreview->setModel(Scorelistmodel);
         Scorelistmodel->appendRow(new QStandardItem(QIcon(icon),e));
-
     }
-
-
-
 }
  ```
+ 
  > As shown above, the query to fill up the listview makes sure to put on the scores in a DESC order and DISTINCT values to avoid redundancy.
 
 
