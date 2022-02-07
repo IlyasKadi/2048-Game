@@ -33,6 +33,7 @@
             </ul>
            </li> 
         <li><a href="#Part-III">Part III :MVC + database Implementation </a></li>
+      <li><a href="#Last-words">Last Words.. </a></li>
    </ol>
 
 
@@ -1181,7 +1182,9 @@ void HighScores::loadscores()
  > As shown above, the query to fill up the listview makes sure to put on the scores in a DESC order and DISTINCT values to avoid redundancy.
 
 
+# Last-words
 
+And last but not least we just want to THANK YOU .. a lot we don't think that words could describe how much glad we are to have such brilliant and helpful professor, two years wasn't enough to get bored of you and we don't think that another 50 years will, but is was enough to make us more productive and filled with your beutifull, big, powerful energy that you never doubt giving it to us.. plus the huge amount of informations that you get sad if you don't give it all to us.... so THANK YOU so much for being there always for us and THANK YOU for everything that you give us starting with a simple smile or even a Hi with your eyes.
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
