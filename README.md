@@ -22,19 +22,15 @@
               <li><a href="#Welcome-interface">Welcome interface</a></li>
               <li><a href="#Main-Game">Main Game interface</a></li>
               <li><a href="#High-Scores">High Scores interface</a></li>
-
            </ul>
     </li>
         <li>
             <a href="#Part-II">Part II : Core of the game (algorithm)</a>
             <ul> 
-              <li><a href="#Configure-the-DDNS-server">Configure the DDNS server</a></li>
-                   <ul> 
-                     <li><a href="#Install-the-necessary-packages">Install the necessary packages</a></li>
-                     <li><a href="#Configure-the-forward-and-reverse-zones">Configure the forward and reverse zones</a></li>                          
-                   </ul>
-              <li><a href="#Configure-the-client">Configure the client</a></li>
-              <li><a href="#Verify-the-configuration">Verify the configuration</a></li>
+              <li><a href="#Movements">Movements</a></li>
+              <li><a href="#Scoring">Scoring</a></li>
+              <li><a href="#Verify-the-configuration">Win/Lose logic</a></li>
+              <li><a href="#Verify-the-configuration">Other details</a></li>
             </ul>
            </li> 
         <li><a href="#Part-III">Part III :MVC + database Implementation </a></li>
@@ -57,12 +53,84 @@ To get a local copy up and running follow these simple example steps.
 
 <div align="center">
     <img src="images/tuto-game.gif" alt="tuto-game" width="550" height="380">  
-    <h5><font color='gris'>tutorial for The 2048 Game</font></h5>
+    <h5><font color='gris'>overview of The 2048 Game</font></h5>
 </div>
 
 <div align="center">
     <img src="images/reset.gif" alt="tuto-game" width="550" height="380">   
-    <h5><font color='gris'>tutorial for reset</font></h5>
+    <h5><font color='gris'>overview of reset</font></h5>
+</div>
+
+
+# Part-I 
+
+In this part we worked mostly with ui to design the form of the parts of te GAME.
+
+## Welcome-interface
+
+<div align="center">
+    <img src="images/menu.png" alt="tuto-game" width="
+    " height="">   
+    
+</div>
+
+
+So basically there is a simple image of the game and two buttons one to launch a new game and the second one for checking scores
+So when clicking first button it will leads you to :
+
+
+
+## Main-Game
+
+
+<div align="center">
+    <img src="images/game.png" alt="tuto-game" width="
+    " height="">   
+    
+</div>
+
+This is our main game interface we decided to keep it as much classic and minimalist as possible one label for 2048 and two others one for best score and the other for the realtime score and a button to reset in case you get bored or you don't like your progess .
+
+
+
+otherwise if you clicked second button it will leads you to :
+
+
+## High-Scores
+<div align="center">
+    <img src="images/scores.png" alt="tuto-game" width="
+    " height="">   
+    
+</div>
+
+This is the High Scores interface two simples labels one for Nickname and the other for High Scores and a list view where we going to put our model.
+
+
+<br>
+
+# Part-II
+
+And for the main meal there is a lot to talk about ..,  we tried to implement our own algorithm in the game (and by the way Oussama used to play the GAME a lot) that's why we decided to keep it as first choice instead of working on another game.
+
+So first things first :
+
+## Movements
+We made an easy movement logic I that is divided into three phases :
+
+Remove Extra Spaces
+<br>
+Perform The Sum
+<br>
+Remove Extra Spaces 
+<br>
+
+Here is a Simple schema that explain how it really works within an exemple of moving up :
+> Same thing for other movement you just need to play a bit with indexes
+
+<div align="center">
+    <img src="images/2048_2.png"  width="
+    " height="">   
+    
 </div>
 
 
